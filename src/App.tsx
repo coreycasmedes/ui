@@ -1,12 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from './components/ui/button'
-import { FocusCards } from './components/ui/focus-cards'
+import { useState } from "react";
+import "./App.css";
+import { Button } from "./components/ui/button";
+import { FocusCards } from "./components/ui/focus-cards";
+import logo from "./assets/logo.png";
+import logob from "./logo.png";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu";
+import { Link } from "@radix-ui/react-navigation-menu";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   const cards = [
     {
@@ -35,17 +48,47 @@ function App() {
     },
   ];
 
+  // logo is 833 x302
   return (
     <>
-    <FocusCards cards={cards}/>
-      <div>asdasdasd
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>Link</NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Travel</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>Link</NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      <img className="m-8 w-28 h-auto " src={logo}></img>
+      <img className="w-32 h-32 object-fit " src={logob}></img>
+      <button className="px-6 py-2 bg-black text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
+        Figma
+      </button>
+      <FocusCards cards={cards} />
+
+      <div>
+        asdasdasd
         <Button variant="secondary">asdd</Button>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
 export default App;
