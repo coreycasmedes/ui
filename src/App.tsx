@@ -1,30 +1,16 @@
 import { useState } from "react";
-import "./App.css";
 import { Button } from "./components/ui/button";
 import { FocusCards } from "./components/ui/focus-cards";
-import logo from "./assets/logo.png";
-import logob from "./logo.png";
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
-import { Link } from "@radix-ui/react-navigation-menu";
+import { ApplicationShell } from "./components/layout/ApplicationShell";
+import headshot from "./assets/adobe_express_1.png";
+import croatia from "./assets/IMG_0179.jpeg";
+import { Spotlight } from "./components/ui/spotlight";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   const cards = [
     {
       title: "Forest Adventure",
-      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: croatia,
     },
     {
       title: "Valley of life",
@@ -50,44 +36,22 @@ function App() {
 
   // logo is 833 x302
   return (
-    <>
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Travel</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+    <ApplicationShell>
+      <div className="flex justify-center">
+        <Spotlight
+          className="-top-40 left-0 md:-top-20 md:left-60"
+          fill="white"
+        />
 
-      <img className="m-8 w-28 h-auto " src={logo}></img>
-      <img className="w-32 h-32 object-fit " src={logob}></img>
-      <button className="px-6 py-2 bg-black text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
-        Figma
-      </button>
-      <FocusCards cards={cards} />
-
-      <div>
-        asdasdasd
-        <Button variant="secondary">asdd</Button>
+        <img
+          src={headshot}
+          className=" inset-0 w-[80%] h-auto blur-[0.1px] pointer-events-none 
+        [mask-image:linear-gradient(to_bottom,black_0%,transparent_99%)] 
+        [-webkit-mask-image:linear-gradient(to_bottom,black_0%,transparent_70%)]"
+        />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <FocusCards cards={cards} />
+    </ApplicationShell>
   );
 }
 
