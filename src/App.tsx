@@ -5,11 +5,12 @@ import { ApplicationShell } from "./components/layout/ApplicationShell";
 import headshot from "./assets/adobe_express_1.png";
 import croatia from "./assets/IMG_0179.jpeg";
 import { Spotlight } from "./components/ui/spotlight";
+import { FlipWords } from "./components/ui/flip-words";
 
 function App() {
   const cards = [
     {
-      title: "Forest Adventure",
+      title: "Croatia",
       src: croatia,
     },
     {
@@ -33,23 +34,36 @@ function App() {
       src: "https://assets.aceternity.com/the-first-rule.png",
     },
   ];
+  const words = ["Software", "Full Stack", "Security"];
 
   // logo is 833 x302
   return (
     <ApplicationShell>
-      <div className="flex justify-center">
-        <Spotlight
+      <div>
+        <div className="absolute pt-60  pl-60 font-assistant text-4xl mx-auto text-neutral-600 dark:text-neutral-400  ">
+          <div className="flex flex-col gap-4  md:flex-row">
+            <div className="flex">
+              <FlipWords className="flex" duration={500} words={words} />
+            </div>
+            <p className="absolute pl-0 md:pl-[52%] font-bold">Engineer</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center pb-96">
+          {/* <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-60"
           fill="white"
-        />
+        /> */}
 
-        <img
-          src={headshot}
-          className=" inset-0 w-[80%] h-auto blur-[0.1px] pointer-events-none 
+          <img
+            src={headshot}
+            className="relative inset-0 w-[50%] h-auto blur-[0.1px] pointer-events-none 
         [mask-image:linear-gradient(to_bottom,black_0%,transparent_99%)] 
         [-webkit-mask-image:linear-gradient(to_bottom,black_0%,transparent_70%)]"
-        />
+          />
+        </div>
       </div>
+
       <FocusCards cards={cards} />
     </ApplicationShell>
   );

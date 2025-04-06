@@ -1,6 +1,28 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: Assistant;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Assistant-Light.ttf");
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Assistant-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-style: normal;
+  font-weight: 800;
+
+  src: url("/fonts/Assistant-ExtraBold.ttf");
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -70,6 +92,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme {
+  --font-primary: "Assistant";
+  --font-assistant: "Assistant";
+  --font-display: "Assistant", "sans-serif";
 }
 
 @theme inline {
