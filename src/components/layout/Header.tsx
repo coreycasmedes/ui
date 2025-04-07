@@ -21,7 +21,7 @@ export const Header = () => {
 
       <div className="flex-grow flex justify-center">
         <NavigationMenu>
-          <NavigationMenuList className="gap-8">
+          <NavigationMenuList className="gap-8 opacity-25">
             <NavigationMenuItem>
               <NavigationMenuLink
                 href="/home"
