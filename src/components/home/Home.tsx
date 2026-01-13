@@ -6,7 +6,7 @@ const words = ["Software", "Full Stack", "Security"];
 export const Home = () => {
   return (
     <div>
-      <div className="absolute pt-60 pl-60 font-assistant text-4xl mx-auto text-neutral-600 dark:text-neutral-400  ">
+      <div className="pt-60 pl-60 font-assistant text-4xl mx-auto text-neutral-600 dark:text-neutral-400  ">
         <div className="flex flex-col gap-4 md:flex-row">
           <div className="flex justify-end w-32 text-white">
             <FlipWords

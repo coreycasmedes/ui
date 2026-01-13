@@ -8,7 +8,7 @@ const icons = [
 
 export const Footer = () => {
   return (
-    <div className="w-full flex justify-center flex-shrink-0 p-2">
+    <div className="w-full flex justify-center flex-shrink-0 pb-6">
       {icons.map(({ href, icon: Icon }) => (
         <div className="flex items-center">
           <a href={href} className="px-2">
