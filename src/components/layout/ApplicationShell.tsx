@@ -2,6 +2,7 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import ShuffleAnimation from "../RiffleShuffleTrueSideView";
+import { Home } from "../home/Home";
 
 export const ApplicationShell = ({ children }: PropsWithChildren<{}>) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -11,10 +12,11 @@ export const ApplicationShell = ({ children }: PropsWithChildren<{}>) => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#222]">
+    <div className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#F5F2ED]">
       {/* <WavyBackground className="h-full flex flex-col"> */}
 
       <Header />
+      <Home />
 
       {isLoading ? (
         <ShuffleAnimation />

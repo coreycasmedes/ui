@@ -1,8 +1,22 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @theme inline {
-  /* Configure your theme variables here */
-  --font-display: "Inter", "sans-serif";
-  --color-primary-500: oklch(0.84 0.18 117.33);
+  /* Neo-Brutalist Color Palette */
+  --color-cream: #F5F2ED;
+  --color-charcoal: #1B1B1B;
+  --color-clay: #C4A77D;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
   --spacing: 0.25rem;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
 }
