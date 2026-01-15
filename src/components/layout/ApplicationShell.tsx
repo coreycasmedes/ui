@@ -12,17 +12,17 @@ export const ApplicationShell = ({ children }: PropsWithChildren<{}>) => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#F5F2ED]">
+    <div className="min-h-screen w-full flex flex-col relative overflow-hidden bg-[#1B1B1B]">
       {/* <WavyBackground className="h-full flex flex-col"> */}
 
       <Header />
       <Home />
-
+      {/* 
       {isLoading ? (
         <ShuffleAnimation />
       ) : (
         <main className="flex flex-1 ">{children}</main>
-      )}
+      )} */}
 
       <Footer />
       {/* </WavyBackground> */}

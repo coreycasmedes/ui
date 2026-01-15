@@ -8,10 +8,10 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="w-full border-t-2 border-[#1B1B1B] mt-auto">
+    <footer className="w-full border-t-2 border-[#F5F2ED] mt-auto">
       <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         {/* Copyright */}
-        <span className="font-mono text-xs text-[#1B1B1B]/60">
+        <span className="text-xs text-[#F5F2ED]/60">
           © 2025 Corey Casmedes
         </span>
 
@@ -22,7 +22,7 @@ export const Footer = () => {
               key={label}
               href={href}
               aria-label={label}
-              className="text-[#1B1B1B] hover:text-[#C4A77D] transition-colors"
+              className="text-[#F5F2ED] hover:text-[#D97757] transition-colors"
             >
               <Icon className="h-5 w-5" />
             </a>

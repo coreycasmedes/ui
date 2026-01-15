@@ -1,22 +1,54 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @theme inline {
-  /* Neo-Brutalist Color Palette */
-  --color-cream: #F5F2ED;
-  --color-charcoal: #1B1B1B;
-  --color-clay: #C4A77D;
+  /* Neo-Brutalist Dark Theme */
+  --color-bg: #1B1B1B;
+  --color-text: #F5F2ED;
+  --color-accent: #D97757;
 
   /* Typography */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
 
   --spacing: 0.25rem;
+
+  /* Marquee animation */
+  --animate-marquee: marquee linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Base styles */
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Hero outline text - responsive stroke width */
+.hero-outline {
+  -webkit-text-stroke: 1px #F5F2ED;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-outline-accent {
+  -webkit-text-stroke: 1px #D97757;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .hero-outline {
+    -webkit-text-stroke: 2px #F5F2ED;
+  }
+  .hero-outline-accent {
+    -webkit-text-stroke: 2px #D97757;
+  }
 }

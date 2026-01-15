@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Marquee } from "../ui/marquee";
 
 // Sample project data - replace with your actual projects
 const projects = [
@@ -7,7 +8,7 @@ const projects = [
     title: "Security Platform",
     tags: ["React", "Node.js", "AWS"],
     description: "Enterprise security monitoring and threat detection system",
-    size: "large", // spans 2 columns
+    size: "large",
   },
   {
     id: 2,
@@ -39,6 +40,15 @@ const projects = [
   },
 ];
 
+const marqueeItems = [
+  "Security-first engineering",
+  "Thoughtful solutions",
+  "Building what matters",
+  "Resilient systems",
+  "Clean architecture",
+  "Continuous learning",
+];
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -62,59 +72,86 @@ const itemVariants = {
 export const Home = () => {
   return (
     <main className="flex-1">
-      {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
+      {/* Hero Section - Ultra Impact */}
+      <section className="relative min-h-[60vh] md:min-h-[70vh] flex flex-col items-center justify-center px-4 md:px-8 py-12 md:py-16 overflow-hidden text-center">
+        {/* Metadata tag */}
+        <motion.span
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-[10px] md:text-xs text-[#F5F2ED]/50 tracking-wider uppercase mb-4"
         >
-          {/* Metadata tag */}
-          <motion.span
-            variants={itemVariants}
-            className="font-mono text-xs text-[#1B1B1B]/50 tracking-wider uppercase"
-          >
-            Software Engineer / Security
-          </motion.span>
+          Software Engineer / Security
+        </motion.span>
 
-          {/* Massive Headline */}
+        {/* Massive Viewport-Sized Outline Text */}
+        <div className="relative w-full">
+          {/* DESIGNER - Outline */}
           <motion.h1
-            variants={itemVariants}
-            className="mt-4 text-6xl md:text-8xl lg:text-9xl font-black text-[#1B1B1B] leading-[0.9] tracking-tight"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="font-[family-name:var(--font-display)] font-bold tracking-tighter leading-[0.85] hero-outline"
+            style={{
+              fontSize: "clamp(2.5rem, 14vw, 12rem)",
+            }}
           >
             DESIGNER
-            <br />
-            <span className="text-[#C4A77D]">&</span> BUILDER
           </motion.h1>
 
-          {/* Subtext */}
-          <motion.p
-            variants={itemVariants}
-            className="mt-8 max-w-lg text-lg text-[#1B1B1B]/70 leading-relaxed"
+          {/* & BUILDER - Filled */}
+          <motion.h1
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            className="font-[family-name:var(--font-display)] font-bold tracking-tighter leading-[0.85] text-[#F5F2ED]"
+            style={{
+              fontSize: "clamp(2.5rem, 14vw, 12rem)",
+            }}
           >
-            Building secure, scalable systems. Turning complex problems into
-            elegant solutions.
-          </motion.p>
+            <span className="hero-outline-accent">&</span>{" "}
+            BUILDER
+          </motion.h1>
+        </div>
 
-          {/* CTA Button - Sharp edges, no rounding */}
-          <motion.div variants={itemVariants} className="mt-8">
-            <a
-              href="/contact"
-              className="inline-block px-8 py-4 bg-[#1B1B1B] text-[#F5F2ED] font-medium text-sm tracking-wide hover:bg-[#C4A77D] transition-colors duration-200"
-            >
-              Get in Touch
-            </a>
-          </motion.div>
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+          className="mt-8 md:mt-12"
+        >
+          <a
+            href="/contact"
+            className="inline-block px-6 py-3 md:px-8 md:py-4 bg-[#F5F2ED] text-[#1B1B1B] font-medium text-sm tracking-wide hover:bg-[#D97757] hover:text-[#F5F2ED] transition-colors duration-200"
+          >
+            Get in Touch
+          </a>
         </motion.div>
       </section>
 
+      {/* Marquee Section (replacing Philosophy) */}
+      <section className="border-y-2 border-[#F5F2ED]/20 py-6">
+        <Marquee speed="slow" pauseOnHover>
+          {marqueeItems.map((item, idx) => (
+            <span
+              key={idx}
+              className="text-lg md:text-xl font-medium text-[#F5F2ED]/70 whitespace-nowrap flex items-center"
+            >
+              {item}
+              <span className="mx-8 text-[#D97757]">✦</span>
+            </span>
+          ))}
+        </Marquee>
+      </section>
+
       {/* Selected Works - Bento Grid */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t-2 border-[#1B1B1B]">
+      <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex items-baseline justify-between mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1B1B1B]">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-[#F5F2ED]">
             Selected Works
           </h2>
-          <span className="font-mono text-xs text-[#1B1B1B]/50">
+          <span className="text-xs text-[#F5F2ED]/50">
             2020—Present
           </span>
         </div>
@@ -125,16 +162,16 @@ export const Home = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-[2px] bg-[#1B1B1B]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-[2px] bg-[#F5F2ED]"
         >
           {projects.map((project) => (
             <motion.article
               key={project.id}
               variants={itemVariants}
               className={`
-                bg-[#F5F2ED] p-6 md:p-8
+                bg-[#1B1B1B] p-6 md:p-8
                 border-2 border-transparent
-                hover:bg-[#EBE8E3] hover:border-[#1B1B1B]
+                hover:bg-[#252525] hover:border-[#F5F2ED]
                 transition-all duration-200 cursor-pointer
                 group
                 ${project.size === "large" ? "md:col-span-2 md:row-span-2" : ""}
@@ -146,7 +183,7 @@ export const Home = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-[10px] px-2 py-1 border border-[#1B1B1B]/20 text-[#1B1B1B]/60"
+                    className="text-[10px] px-2 py-1 border border-[#F5F2ED]/20 text-[#F5F2ED]/60 uppercase tracking-wider"
                   >
                     {tag}
                   </span>
@@ -155,7 +192,7 @@ export const Home = () => {
 
               {/* Title */}
               <h3
-                className={`font-bold text-[#1B1B1B] group-hover:text-[#C4A77D] transition-colors ${
+                className={`font-[family-name:var(--font-display)] font-bold text-[#F5F2ED] group-hover:text-[#D97757] transition-colors ${
                   project.size === "large"
                     ? "text-2xl md:text-4xl"
                     : "text-xl md:text-2xl"
@@ -165,13 +202,13 @@ export const Home = () => {
               </h3>
 
               {/* Description */}
-              <p className="mt-3 text-sm text-[#1B1B1B]/60 leading-relaxed">
+              <p className="mt-3 text-sm text-[#F5F2ED]/60 leading-relaxed">
                 {project.description}
               </p>
 
               {/* Arrow indicator */}
-              <div className="mt-6 flex items-center gap-2 text-[#1B1B1B]/40 group-hover:text-[#C4A77D] transition-colors">
-                <span className="font-mono text-xs">View Project</span>
+              <div className="mt-6 flex items-center gap-2 text-[#F5F2ED]/40 group-hover:text-[#D97757] transition-colors">
+                <span className="text-xs">View Project</span>
                 <svg
                   className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -189,32 +226,6 @@ export const Home = () => {
             </motion.article>
           ))}
         </motion.div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 border-t-2 border-[#1B1B1B]">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-          <div>
-            <span className="font-mono text-xs text-[#1B1B1B]/50 tracking-wider uppercase">
-              Philosophy
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold text-[#1B1B1B] leading-tight">
-              Thoughtful engineering for complex problems
-            </h2>
-          </div>
-          <div className="flex flex-col justify-end">
-            <p className="text-lg text-[#1B1B1B]/70 leading-relaxed">
-              I believe in building systems that are not just functional, but
-              resilient. Security isn't an afterthought—it's woven into every
-              line of code. Good engineering means understanding the problem
-              deeply before writing a single line.
-            </p>
-            <p className="mt-6 text-lg text-[#1B1B1B]/70 leading-relaxed">
-              Every project is an opportunity to learn, iterate, and create
-              something that matters.
-            </p>
-          </div>
-        </div>
       </section>
     </main>
   );
