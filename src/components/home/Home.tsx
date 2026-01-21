@@ -90,7 +90,11 @@ export const Home = () => {
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="font-[family-name:var(--font-display)] font-bold tracking-tighter leading-[0.85] hero-outline"
             style={{
               fontSize: "clamp(2.5rem, 14vw, 12rem)",
@@ -103,14 +107,17 @@ export const Home = () => {
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="font-[family-name:var(--font-display)] font-bold tracking-tighter leading-[0.85] text-[#F5F2ED]"
             style={{
               fontSize: "clamp(2.5rem, 14vw, 12rem)",
             }}
           >
-            <span className="hero-outline-accent">&</span>{" "}
-            BUILDER
+            <span className="hero-outline-accent">&</span> BUILDER
           </motion.h1>
         </div>
 
@@ -125,7 +132,7 @@ export const Home = () => {
             href="/contact"
             className="inline-block px-6 py-3 md:px-8 md:py-4 bg-[#F5F2ED] text-[#1B1B1B] font-medium text-sm tracking-wide hover:bg-[#D97757] hover:text-[#F5F2ED] transition-colors duration-200"
           >
-            Get in Touch
+            Work With Me
           </a>
         </motion.div>
       </section>
@@ -151,9 +158,7 @@ export const Home = () => {
           <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-[#F5F2ED]">
             Selected Works
           </h2>
-          <span className="text-xs text-[#F5F2ED]/50">
-            2020—Present
-          </span>
+          <span className="text-xs text-[#F5F2ED]/50">2020—Present</span>
         </div>
 
         {/* Bento Box Grid */}
