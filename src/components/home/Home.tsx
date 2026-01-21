@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
+import { VantaBackground } from "../ui/vanta-background";
 
 const experiences = [
   {
@@ -65,25 +68,65 @@ export const Home = () => {
   const [activeSection, setActiveSection] = useState("about");
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen relative">
+      <VantaBackground />
+
       {/* Left Panel - Fixed */}
       <div className="hidden lg:flex lg:w-1/2 lg:flex-col lg:justify-between lg:fixed lg:h-screen lg:px-12 lg:py-20">
         <div>
-          <h1 className="text-[var(--text-4xl)] font-semibold text-[var(--color-text-bright)] mb-2">
-            Your Name
-          </h1>
-          <h2 className="text-[var(--text-lg)] font-medium text-[var(--color-text-bright)] mb-3">
+          <div className="font-normal text-6xl text-white">Vanta.js</div>
+          <div className="font-medium text-6xl text-white">Vanta.js</div>
+          <div className="font-semibold text-6xl">Vanta.js</div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-6xl font-normal mb-2"
+          >
+            Vanta.js
+            Corey Casmedes
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-6xl font-semibold text-[var(--color-text-bright)] mb-2"
+          >
+            Vanta.js
+            Corey Casmedes
+          </motion.h1>
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-[var(--text-lg)] font-medium text-[var(--color-text-bright)] mb-3"
+          >
             Software Engineer
-          </h2>
-          <p className="text-[var(--text-base)] text-[var(--color-text)] max-w-xs leading-relaxed mb-12">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-[var(--text-base)] text-[var(--color-text)] max-w-xs leading-relaxed mb-12"
+          >
             I build accessible, pixel-perfect digital experiences for the web.
-          </p>
+          </motion.p>
 
           {/* Navigation */}
-          <nav>
+          <motion.nav
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <ul className="space-y-4">
-              {["about", "experience", "projects"].map((section) => (
-                <li key={section}>
+              {["about", "experience", "projects"].map((section, idx) => (
+                <motion.li
+                  key={section}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + idx * 0.1 }}
+                >
                   <a
                     href={`#${section}`}
                     onClick={() => setActiveSection(section)}
@@ -106,14 +149,19 @@ export const Home = () => {
                       {section}
                     </span>
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
         </div>
 
         {/* Social Links */}
-        <div className="flex gap-5">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="flex gap-5"
+        >
           <a
             href="#"
             className="text-[var(--color-text)] hover:text-[var(--color-text-bright)] transition-colors"
@@ -153,7 +201,7 @@ export const Home = () => {
               <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
             </svg>
           </a>
-        </div>
+        </motion.div>
       </div>
 
       {/* Right Panel - Scrollable */}
@@ -171,11 +219,72 @@ export const Home = () => {
           </p>
         </div>
 
+        {/* Hero Section - Desktop Only */}
+        <section className="hidden lg:block mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-[var(--text-sm)] text-[var(--color-text)] mb-8 leading-relaxed"
+            >
+              I specialize in building exceptional digital products with a focus on{" "}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-[var(--color-accent)] font-medium"
+              >
+                performance
+              </motion.span>
+              ,{" "}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="text-[var(--color-accent)] font-medium"
+              >
+                accessibility
+              </motion.span>
+              , and{" "}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="text-[var(--color-accent)] font-medium"
+              >
+                user experience
+              </motion.span>
+              .
+            </motion.p>
+          </motion.div>
+        </section>
+
         {/* About Section */}
         <section id="about" className="mb-20 md:mb-32">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-bright)] mb-6 lg:hidden">
             About
           </h2>
+
+          <TypewriterEffectSmooth
+            words={[
+              { text: "Building" },
+              { text: "the" },
+              { text: "web," },
+              { text: "one" },
+              { text: "line", className: "text-[var(--color-accent)]" },
+              { text: "at", className: "text-[var(--color-accent)]" },
+              { text: "a", className: "text-[var(--color-accent)]" },
+              { text: "time.", className: "text-[var(--color-accent)]" },
+            ]}
+            className="mb-8"
+            cursorClassName="bg-[var(--color-accent)]"
+          />
+
           <div className="space-y-4 text-[var(--text-base)] text-[var(--color-text)] leading-relaxed">
             <p>
               Back in 2018, I decided to try my hand at creating custom websites
