@@ -1,54 +1,112 @@
 @import "tailwindcss";
 
-@theme inline {
-  /* Neo-Brutalist Dark Theme */
-  --color-bg: #1B1B1B;
-  --color-text: #F5F2ED;
-  --color-accent: #D97757;
-
-  /* Typography */
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-
-  --spacing: 0.25rem;
-
-  /* Marquee animation */
-  --animate-marquee: marquee linear infinite;
+/* Circular Font Family - Tailwind CSS Compatible */
+@font-face {
+  font-family: 'Circular';
+  src: url('/fonts/CircularStd-Book.woff2') format('woff2'),
+       url('/fonts/CircularStd-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+@font-face {
+  font-family: 'Circular';
+  src: url('/fonts/CircularStd-Medium.woff2') format('woff2'),
+       url('/fonts/CircularStd-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('/fonts/CircularStd-Bold.woff2') format('woff2'),
+       url('/fonts/CircularStd-Bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('/fonts/CircularStd-Bold.woff2') format('woff2'),
+       url('/fonts/CircularStd-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  /* Minimal Dark Theme - Warm Charcoal */
+  --color-bg: #022222;
+  --color-bg-light: #252525;
+  --color-text: #a0a0a0;
+  --color-text-bright: #e8e8e8;
+  --color-accent: #f5a962;
+
+  /* Typography Scale - Modular scale based on 1rem with 1.25 ratio */
+  --font-sans: "Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+
+  /* Vertical Rhythm - 8px base unit */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-6: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-12: 6rem;    /* 96px */
 }
 
 /* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hero outline text - responsive stroke width */
-.hero-outline {
-  -webkit-text-stroke: 1px #F5F2ED;
-  -webkit-text-fill-color: transparent;
+/* Typography refinements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text-bright);
 }
 
-.hero-outline-accent {
-  -webkit-text-stroke: 1px #D97757;
-  -webkit-text-fill-color: transparent;
+p {
+  line-height: 1.7;
 }
 
-@media (min-width: 768px) {
-  .hero-outline {
-    -webkit-text-stroke: 2px #F5F2ED;
-  }
-  .hero-outline-accent {
-    -webkit-text-stroke: 2px #D97757;
-  }
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
