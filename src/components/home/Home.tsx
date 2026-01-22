@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { VantaBackground } from "../ui/vanta-background";
@@ -9,7 +9,7 @@ const experiences = [
     title: "Senior Software Engineer",
     company: "Stealth Startup",
     description:
-      "Build and maintain critical systems that serve millions of users. Lead architectural decisions and mentor junior developers.",
+      "Build and maintain critical auth systems that serve thousands of users. Lead architectural decisions and mentor junior developers.",
     technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
     link: "#",
   },
@@ -27,8 +27,8 @@ const experiences = [
     title: "Software Engineer",
     company: "Apple",
     description:
-      "Created responsive web applications for clients across various industries. Collaborated with designers to build pixel-perfect interfaces.",
-    technologies: ["Java", "Python",],
+      "Created Apple Pay partner onboarding and server performance testing framework. Collaborated with designers to build pixel-perfect interfaces.",
+    technologies: ["Java", "Python"],
     link: "#",
   },
   {
@@ -76,6 +76,8 @@ const projects = [
 export const Home = () => {
   const [activeSection, setActiveSection] = useState("about");
 
+  console.log("HOME RENDER");
+
   return (
     <div className="flex min-h-screen relative">
       <VantaBackground />
@@ -83,7 +85,9 @@ export const Home = () => {
       {/* Left Panel - Fixed */}
       <div className="hidden lg:flex lg:w-1/2 lg:flex-col lg:justify-between lg:fixed lg:h-screen lg:px-12 lg:py-20">
         <div>
-          <div className="font-normal text-6xl text-white">Corey Casmedes</div>
+          <div className="font-normal text-6xl text-[var(--color-accent)] mb-2">
+            Corey Casmedes
+          </div>
           {/* <div className="font-medium text-6xl text-white">Corey Casmedes</div>
           <div className="font-semibold text-6xl">Corey Casmedes</div> */}
 
@@ -106,12 +110,15 @@ export const Home = () => {
             Corey Casmedes
           </motion.h1> */}
           <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[var(--text-lg)] font-medium text-[var(--color-text-bright)] mb-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-[var(--text-lg)] font-medium text-[var(--color-accent) mb-3"
           >
-            Software Engineer <span className="font-normal text-[var(--color-text-bright)]">/ Security</span>
+            Software Engineer{" "}
+            <span className="font-normal text-[var(--color-text-bright)]">
+              / Security
+            </span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -285,10 +292,11 @@ export const Home = () => {
 
           <div className="space-y-4 text-[var(--text-base)] text-[var(--color-text)] leading-relaxed">
             <p>
-              Back in 2023, I pivoted to specialize in software security to try my hand at securing enterprises and bug bounties
-              and tumbled head first into the rabbit hole. Fast-forward to today, and I've had the privilege of
-              building software for startups, large corporations, and everything
-              in between.
+              Back in 2023, I pivoted to specialize in software security to try
+              my hand at securing enterprises and bug bounties and tumbled head
+              first into the rabbit hole. Fast-forward to today, and I've had
+              the privilege of building software for startups, large
+              corporations, and everything in between.
             </p>
             <p>
               My main focus these days is building accessible user interfaces

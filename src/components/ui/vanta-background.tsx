@@ -1,20 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import TOPOLOGY from "vanta/dist/vanta.topology.min";
 
 export const VantaBackground = () => {
-  const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
+  const vantaEffect = useRef(null);
+
   useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        TOPOLOGY({
-          el: myRef.current,
-        })
-      );
+    if (!vantaEffect.current && myRef.current) {
+      vantaEffect.current = TOPOLOGY({
+        el: myRef.current,
+      });
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy();
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+        vantaEffect.current = null;
+      }
     };
-  }, [vantaEffect]);
-  return <div ref={myRef} className="fixed inset-0 -z-10 w-full h-full"></div>;
+  }, []);
+
+  return (
+    <>
+      <div ref={myRef} className="fixed inset-0 -z-10 w-full h-full"></div>
+      {/* Overlay for better contrast */}
+      <div className="fixed inset-0 -z-10 bg-black/20 "></div>
+    </>
+  );
 };
