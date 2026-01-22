@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { User, Briefcase, FolderGit2 } from "lucide-react";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { VantaBackground } from "../ui/vanta-background";
 
@@ -18,7 +19,7 @@ const experiences = [
     title: "Software Security Engineer",
     company: "Cruise",
     description:
-      "Developed full-stack features for incident detection and response. Improved application performance and implemented CI/CD pipelines.",
+      "Developed full-stack applications for incident detection and response. Improved application performance and implemented CI/CD pipelines.",
     technologies: ["Python", "React", "BigQuery"],
     link: "#",
   },
@@ -27,7 +28,7 @@ const experiences = [
     title: "Software Engineer",
     company: "Apple",
     description:
-      "Created Apple Pay partner onboarding and server performance testing framework. Collaborated with designers to build pixel-perfect interfaces.",
+      "Revealed Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
     technologies: ["Java", "Python"],
     link: "#",
   },
@@ -36,7 +37,7 @@ const experiences = [
     title: "Software Engineer",
     company: "Capital One",
     description:
-      "Created responsive web applications for clients across various industries. Collaborated with designers to build pixel-perfect interfaces.",
+      "Embedded in Credit Risk Management data engineering organization. Collaborated with Credit Officer and Analyst to optimize model infrastructure and reduce cloud costs.",
     technologies: ["Python", "R", "AWS"],
     link: "#",
   },
@@ -44,37 +45,87 @@ const experiences = [
 
 const projects = [
   {
-    title: "Security Platform",
-    description:
-      "Enterprise security monitoring and threat detection system with real-time alerts and comprehensive dashboards.",
-    technologies: ["React", "Node.js", "AWS", "PostgreSQL"],
-    link: "#",
+    title:
+      "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
+    description: "Patent #11,516,295",
+    technologies: ["Swift", "Python", "S3"],
+    link: "https://patents.justia.com/patent/20240089325",
   },
   {
-    title: "API Gateway",
-    description:
-      "High-performance API gateway with intelligent rate limiting and request routing for microservices architecture.",
-    technologies: ["Go", "gRPC", "Kubernetes", "Redis"],
+    title: "Wireguard Domain Tunnel",
+    description: "Domain based wireguard VPN split tunnel",
+    technologies: ["TypeScript", "Rust", "Electron"],
     link: "#",
   },
-  {
-    title: "Auth Service",
-    description:
-      "Zero-trust authentication microservice with multi-factor authentication and session management.",
-    technologies: ["Rust", "PostgreSQL", "JWT"],
-    link: "#",
-  },
-  {
-    title: "Data Pipeline",
-    description:
-      "Real-time data processing and analytics pipeline handling millions of events per day.",
-    technologies: ["Python", "Kafka", "Spark", "Airflow"],
-    link: "#",
-  },
+  // {
+  //   title: "Auth Service",
+  //   description:
+  //     "Zero-trust authentication microservice with multi-factor authentication and session management.",
+  //   technologies: ["Rust", "PostgreSQL", "JWT"],
+  //   link: "#",
+  // },
+  // {
+  //   title: "Data Pipeline",
+  //   description:
+  //     "Real-time data processing and analytics pipeline handling millions of events per day.",
+  //   technologies: ["Python", "Kafka", "Spark", "Airflow"],
+  //   link: "#",
+  // },
 ];
 
 export const Home = () => {
   const [activeSection, setActiveSection] = useState("about");
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  const getSectionIcon = (section: string) => {
+    const iconProps = {
+      className: `transition-all ${
+        activeSection === section
+          ? "text-[var(--color-accent)]"
+          : "text-[var(--color-text)] group-hover:text-[var(--color-accent)]"
+      }`,
+      size: 18,
+      strokeWidth: 2,
+    };
+
+    switch (section) {
+      case "about":
+        return <User {...iconProps} />;
+      case "experience":
+        return <Briefcase {...iconProps} />;
+      case "projects":
+        return <FolderGit2 {...iconProps} />;
+      default:
+        return null;
+    }
+  };
 
   console.log("HOME RENDER");
 
@@ -85,49 +136,30 @@ export const Home = () => {
       {/* Left Panel - Fixed */}
       <div className="hidden lg:flex lg:w-1/2 lg:flex-col lg:justify-between lg:fixed lg:h-screen lg:px-12 lg:py-20">
         <div>
-          <div className="font-normal text-6xl text-[var(--color-accent)] mb-2">
+          <div className="font-medium text-7xl text-[var(--color-accent)] mb-8">
             Corey Casmedes
           </div>
-          {/* <div className="font-medium text-6xl text-white">Corey Casmedes</div>
-          <div className="font-semibold text-6xl">Corey Casmedes</div> */}
 
-          {/* <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-6xl font-normal mb-2"
-          >
-            Vanta.js
-            Corey Casmedes
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-6xl font-semibold text-[var(--color-text-bright)] mb-2"
-          >
-            Vanta.js
-            Corey Casmedes
-          </motion.h1> */}
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-[var(--text-lg)] font-medium text-[var(--color-accent) mb-3"
+            className="text-[var(--text-lg)] font-semibold text-[var(--color-accent) mb-16"
           >
             Software Engineer{" "}
-            <span className="font-normal text-[var(--color-text-bright)]">
-              / Security
+            <span className="font-normal mr-1 text-[var(--color-accent)]">
+              /
             </span>
+            Security
           </motion.h2>
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-[var(--text-base)] text-[var(--color-text)] max-w-xs leading-relaxed mb-12"
           >
             I build accessible, pixel-perfect digital experiences for the web.
-          </motion.p>
+          </motion.p> */}
 
           {/* Navigation */}
           <motion.nav
@@ -148,13 +180,7 @@ export const Home = () => {
                     onClick={() => setActiveSection(section)}
                     className="group flex items-center text-xs uppercase tracking-wider"
                   >
-                    <span
-                      className={`h-px transition-all mr-3 ${
-                        activeSection === section
-                          ? "w-12 bg-[var(--color-text-bright)]"
-                          : "w-8 bg-[var(--color-text)] group-hover:w-12 group-hover:bg-[var(--color-text-bright)]"
-                      }`}
-                    />
+                    <span className="mr-3">{getSectionIcon(section)}</span>
                     <span
                       className={`transition-colors font-medium ${
                         activeSection === section
@@ -218,9 +244,6 @@ export const Home = () => {
           <h2 className="text-[var(--text-lg)] font-medium text-[var(--color-text-bright)] mb-3">
             Software Engineer
           </h2>
-          <p className="text-[var(--text-base)] text-[var(--color-text)] leading-relaxed">
-            I build accessible, pixel-perfect digital experiences for the web.
-          </p>
         </div>
 
         {/* Hero Section - Desktop Only */}
@@ -290,7 +313,7 @@ export const Home = () => {
             cursorClassName="bg-[var(--color-accent)]"
           />
 
-          <div className="space-y-4 text-[var(--text-base)] text-[var(--color-text)] leading-relaxed">
+          <div className="space-y-4 text-(--text-base) leading-relaxed">
             <p>
               Back in 2023, I pivoted to specialize in software security to try
               my hand at securing enterprises and bug bounties and tumbled head
@@ -305,15 +328,15 @@ export const Home = () => {
                 href="#"
                 className="text-[var(--color-text-bright)] hover:text-[var(--color-accent)] transition-colors font-medium"
               >
-                TechCorp
+                Startups
               </a>
               . I also occasionally take on freelance projects and contribute to
               open-source software.
             </p>
             <p>
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to developer communities, or working on personal
-              projects that push my skills forward.
+              When I'm not coding, you'll find me contributing to developer
+              communities, or working on personal projects that push my skills
+              forward.
             </p>
           </div>
         </section>

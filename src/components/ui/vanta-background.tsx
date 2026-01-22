@@ -23,7 +23,7 @@ export const VantaBackground = () => {
     <>
       <div ref={myRef} className="fixed inset-0 -z-10 w-full h-full"></div>
       {/* Overlay for better contrast */}
-      <div className="fixed inset-0 -z-10 bg-black/20 "></div>
+      <div className="fixed inset-0 -z-10 bg-black/35 "></div>
     </>
   );
 };
