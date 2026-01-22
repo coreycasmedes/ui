@@ -5,8 +5,6 @@ export const VantaBackground = () => {
   const myRef = useRef(null);
   const vantaRef = useRef<ReturnType<typeof TOPOLOGY> | null>(null);
 
-  console.log("VANTA BACKGROUND ");
-
   useEffect(() => {
     if (!vantaRef.current) {
       vantaRef.current = TOPOLOGY({
