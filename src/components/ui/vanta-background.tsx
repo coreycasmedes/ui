@@ -3,18 +3,21 @@ import TOPOLOGY from "vanta/dist/vanta.topology.min";
 
 export const VantaBackground = () => {
   const myRef = useRef(null);
-  const vantaEffect = useRef(null);
+  const vantaRef = useRef<ReturnType<typeof TOPOLOGY> | null>(null);
+
+  console.log("VANTA BACKGROUND ");
 
   useEffect(() => {
-    if (!vantaEffect.current && myRef.current) {
-      vantaEffect.current = TOPOLOGY({
+    if (!vantaRef.current) {
+      vantaRef.current = TOPOLOGY({
         el: myRef.current,
       });
     }
+
     return () => {
-      if (vantaEffect.current) {
-        vantaEffect.current.destroy();
-        vantaEffect.current = null;
+      if (vantaRef.current) {
+        vantaRef.current.destroy();
+        vantaRef.current = null;
       }
     };
   }, []);
