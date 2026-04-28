@@ -2,12 +2,17 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { VantaBackground } from "../ui/vanta-background";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
+import vannevarLogo from "../../assets/vannevar-logo.png";
+import cruiseLogo from "../../assets/cruise-logo.png";
+import appleLogo from "../../assets/apple-logo.png";
+import capitalOneLogo from "../../assets/capital-one-logo.png";
 
 const experiences = [
   {
     period: "2024 — Present",
     title: "Senior Software Engineer",
-    company: "Stealth Startup",
+    company: "Startup",
+    logo: vannevarLogo,
     description:
       "Build and maintain critical auth systems that serve thousands of users. Lead architectural decisions and mentor junior developers.",
     technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
@@ -17,6 +22,7 @@ const experiences = [
     period: "2023 — 2024",
     title: "Software Security Engineer",
     company: "Cruise",
+    logo: cruiseLogo,
     description:
       "Developed full-stack applications for incident detection and response. Improved application performance and implemented CI/CD pipelines.",
     technologies: ["Python", "React", "BigQuery"],
@@ -26,6 +32,7 @@ const experiences = [
     period: "2021 — 2023",
     title: "Software Engineer",
     company: "Apple",
+    logo: appleLogo,
     description:
       "Revealed Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
     technologies: ["Java", "Python"],
@@ -35,6 +42,7 @@ const experiences = [
     period: "2019 — 2021",
     title: "Software Engineer",
     company: "Capital One",
+    logo: capitalOneLogo,
     description:
       "Embedded in Credit Risk Management data engineering organization. Collaborated with Credit Officer and Analyst to optimize model infrastructure and reduce cloud costs.",
     technologies: ["Python", "R", "AWS"],
@@ -135,9 +143,16 @@ export const Home = () => {
                     borderWidth={1.5}
                   />
                   <div className="flex flex-col sm:flex-row sm:gap-6">
-                    <p className="text-xs font-medium uppercase tracking-wide text-[var(--color-text)] mb-2 sm:mb-0 sm:w-28 flex-shrink-0">
-                      {exp.period}
-                    </p>
+                    <div className="mb-3 sm:mb-0 sm:w-28 flex-shrink-0 flex items-center gap-3 sm:flex-col sm:items-start sm:gap-2">
+                      <p className="text-xs font-medium uppercase tracking-wide text-[var(--color-text)]">
+                        {exp.period}
+                      </p>
+                      <img
+                        src={exp.logo}
+                        alt={exp.company}
+                        className="w-8 h-8 flex-shrink-0 rounded object-contain"
+                      />
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-[var(--text-base)] text-[var(--color-text-bright)] font-medium mb-2 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
                         {exp.title} · {exp.company}
