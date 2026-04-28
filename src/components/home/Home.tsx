@@ -1,6 +1,7 @@
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { VantaBackground } from "../ui/vanta-background";
 import { HeroSection } from "../ui/hero-section";
+import { GlowingEffect } from "../ui/glowing-effect";
 
 const experiences = [
   {
@@ -125,8 +126,14 @@ export const Home = () => {
               <li key={idx}>
                 <a
                   href={exp.link}
-                  className="group block py-3 -mx-3 px-3 hover:bg-[var(--color-bg-light)]/50 rounded transition-colors"
+                  className="rounded-2xl relative block py-3 -mx-3 px-3 hover:bg-[var(--color-bg-light)]/50 rounded transition-colors"
                 >
+                  <GlowingEffect
+                    disabled={false}
+                    spread={30}
+                    proximity={60}
+                    borderWidth={1.5}
+                  />
                   <div className="flex flex-col sm:flex-row sm:gap-6">
                     <p className="text-xs font-medium uppercase tracking-wide text-[var(--color-text)] mb-2 sm:mb-0 sm:w-28 flex-shrink-0">
                       {exp.period}
@@ -166,8 +173,14 @@ export const Home = () => {
               <li key={idx}>
                 <a
                   href={project.link}
-                  className="group block py-3 -mx-3 px-3 hover:bg-[var(--color-bg-light)]/50 rounded transition-colors"
+                  className="group rounded-2xl relative block py-3 -mx-3 px-3 hover:bg-[var(--color-bg-light)]/50 rounded transition-colors"
                 >
+                  <GlowingEffect
+                    disabled={false}
+                    spread={30}
+                    proximity={60}
+                    borderWidth={1.5}
+                  />
                   <h3 className="text-[var(--text-base)] text-[var(--color-text-bright)] font-medium mb-2 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
                     {project.title}
                   </h3>
