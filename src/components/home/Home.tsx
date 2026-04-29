@@ -1,3 +1,4 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
@@ -66,8 +67,19 @@ const projects = [
 ];
 
 export const Home = () => {
+  const { scrollY } = useScroll();
+  const gradientOpacity = useTransform(scrollY, [0, 350], [1, 0]);
+
   return (
     <div>
+      <motion.div
+        className="fixed inset-x-0 top-0 h-screen pointer-events-none z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 65% 25%, rgba(218,221,216,0.18) 0%, rgba(218,221,216,0.06) 35%, transparent 65%)",
+          opacity: gradientOpacity,
+        }}
+      />
       <Navbar />
       <HeroSection />
 

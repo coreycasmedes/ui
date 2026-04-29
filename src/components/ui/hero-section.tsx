@@ -5,17 +5,6 @@ const headline = "Security Engineering and Full Stack Applications";
 export const HeroSection = () => {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14">
-      {/* Aceternity-style border accents */}
-      <div className="absolute inset-y-0 left-0 h-full w-px bg-secondary/10">
-        <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-accent to-transparent" />
-      </div>
-      <div className="absolute inset-y-0 right-0 h-full w-px bg-secondary/10">
-        <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-accent to-transparent" />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 h-px w-full bg-secondary/10">
-        <div className="absolute left-1/2 -translate-x-1/2 h-px w-48 bg-gradient-to-r from-transparent via-accent to-transparent" />
-      </div>
-
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
         <motion.p
           initial={{ opacity: 0 }}
@@ -41,7 +30,11 @@ export const HeroSection = () => {
               key={index}
               initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
               animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{ duration: 0.3, delay: 0.4 + index * 0.08, ease: "easeInOut" }}
+              transition={{
+                duration: 0.3,
+                delay: 0.4 + index * 0.08,
+                ease: "easeInOut",
+              }}
               className="mr-2 inline-block"
             >
               {word}

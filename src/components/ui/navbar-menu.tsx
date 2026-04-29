@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FolderGit2,
@@ -65,7 +65,14 @@ export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   const openDropdown = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -76,7 +83,13 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/10">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${
+        scrolled
+          ? "bg-background/95 border-border/10"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 flex items-center justify-between h-14">
         {/* Logo + Desktop nav */}
         <div className="flex items-center gap-6">
