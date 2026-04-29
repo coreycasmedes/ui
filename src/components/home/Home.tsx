@@ -70,7 +70,7 @@ const projects = [
 export const Home = () => {
   return (
     <div>
-      <VantaBackground />
+      {/* <VantaBackground /> */}
       <Navbar />
 
       <HeroSection />
