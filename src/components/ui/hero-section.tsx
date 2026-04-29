@@ -6,14 +6,14 @@ export const HeroSection = () => {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14">
       {/* Aceternity-style border accents */}
-      <div className="absolute inset-y-0 left-0 h-full w-px bg-[var(--color-text)]/10">
-        <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-[var(--color-accent)] to-transparent" />
+      <div className="absolute inset-y-0 left-0 h-full w-px bg-secondary/10">
+        <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-accent to-transparent" />
       </div>
-      <div className="absolute inset-y-0 right-0 h-full w-px bg-[var(--color-text)]/10">
-        <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-[var(--color-accent)] to-transparent" />
+      <div className="absolute inset-y-0 right-0 h-full w-px bg-secondary/10">
+        <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-accent to-transparent" />
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-px w-full bg-[var(--color-text)]/10">
-        <div className="absolute left-1/2 -translate-x-1/2 h-px w-48 bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px w-full bg-secondary/10">
+        <div className="absolute left-1/2 -translate-x-1/2 h-px w-48 bg-gradient-to-r from-transparent via-accent to-transparent" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
@@ -21,7 +21,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
-          className="text-xs uppercase tracking-widest text-[var(--color-accent)] font-medium mb-6"
+          className="text-xs uppercase tracking-widest text-accent font-medium mb-6"
         >
           Software Engineer / Security
         </motion.p>
@@ -30,22 +30,18 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="font-bold text-5xl md:text-7xl text-[var(--color-accent)] mb-6"
+          className="font-bold text-5xl md:text-7xl text-accent mb-6"
         >
           Corey Casmedes
         </motion.div>
 
-        <h1 className="relative z-10 max-w-2xl text-center text-xl md:text-2xl lg:text-3xl font-semibold text-[var(--color-text-bright)] mb-6 leading-snug">
+        <h1 className="relative z-10 max-w-2xl text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-6 leading-snug">
           {headline.split(" ").map((word, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
               animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.4 + index * 0.08,
-                ease: "easeInOut",
-              }}
+              transition={{ duration: 0.3, delay: 0.4 + index * 0.08, ease: "easeInOut" }}
               className="mr-2 inline-block"
             >
               {word}
@@ -57,21 +53,12 @@ export const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 1.1 }}
-          className="relative z-10 max-w-md text-sm text-[var(--color-text)] leading-relaxed mb-10"
+          className="relative z-10 max-w-md text-sm text-secondary leading-relaxed mb-10"
         >
           I specialize in building exceptional software products with a focus on{" "}
-          <span className="text-[var(--color-accent)] font-medium">
-            security
-          </span>
-          ,{" "}
-          <span className="text-[var(--color-accent)] font-medium">
-            performance
-          </span>
-          , and{" "}
-          <span className="text-[var(--color-accent)] font-medium">
-            user experience
-          </span>
-          .
+          <span className="text-accent font-medium">security</span>,{" "}
+          <span className="text-accent font-medium">performance</span>, and{" "}
+          <span className="text-accent font-medium">user experience</span>.
         </motion.p>
 
         <motion.div
@@ -82,13 +69,13 @@ export const HeroSection = () => {
         >
           <a
             href="#about"
-            className="transform rounded-lg bg-[var(--color-accent)] px-6 py-2.5 text-sm font-medium text-[var(--color-bg)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+            className="transform rounded-lg bg-accent px-6 py-2.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary"
           >
             View Work
           </a>
           <a
             href="#experience"
-            className="transform rounded-lg border border-[var(--color-text)]/30 px-6 py-2.5 text-sm font-medium text-[var(--color-text-bright)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-accent)]/50"
+            className="transform rounded-lg border border-secondary/30 px-6 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50"
           >
             Experience
           </a>
@@ -102,7 +89,7 @@ export const HeroSection = () => {
         >
           <a
             href="https://github.com/coreycasmedes"
-            className="text-[var(--color-text)] hover:text-[var(--color-text-bright)] transition-colors"
+            className="text-secondary hover:text-primary transition-colors"
             aria-label="GitHub"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -111,7 +98,7 @@ export const HeroSection = () => {
           </a>
           <a
             href="https://www.linkedin.com/in/coreycasmedes"
-            className="text-[var(--color-text)] hover:text-[var(--color-text-bright)] transition-colors"
+            className="text-secondary hover:text-primary transition-colors"
             aria-label="LinkedIn"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

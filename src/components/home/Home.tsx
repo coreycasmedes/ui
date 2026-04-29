@@ -1,5 +1,4 @@
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
-import { VantaBackground } from "../ui/vanta-background";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
 import { Navbar } from "../ui/navbar-menu";
@@ -53,8 +52,7 @@ const experiences = [
 
 const projects = [
   {
-    title:
-      "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
+    title: "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
     description: "Patent #11,516,295",
     technologies: ["Swift", "Python", "S3"],
     link: "https://patents.justia.com/patent/20240089325",
@@ -70,16 +68,14 @@ const projects = [
 export const Home = () => {
   return (
     <div>
-      {/* <VantaBackground /> */}
       <Navbar />
-
       <HeroSection />
 
-      {/* Scrollable content */}
       <div className="max-w-2xl mx-auto px-6 md:px-12 py-20 space-y-28">
+
         {/* About */}
         <section id="about">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-bright)] mb-8">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-primary mb-8">
             About
           </h2>
 
@@ -89,16 +85,16 @@ export const Home = () => {
               { text: "the" },
               { text: "web," },
               { text: "one" },
-              { text: "line", className: "text-[var(--color-accent)]" },
-              { text: "at", className: "text-[var(--color-accent)]" },
-              { text: "a", className: "text-[var(--color-accent)]" },
-              { text: "time.", className: "text-[var(--color-accent)]" },
+              { text: "line",  className: "text-accent" },
+              { text: "at",    className: "text-accent" },
+              { text: "a",     className: "text-accent" },
+              { text: "time.", className: "text-accent" },
             ]}
             className="mb-8"
-            cursorClassName="bg-[var(--color-accent)]"
+            cursorClassName="bg-accent"
           />
 
-          <div className="space-y-4 text-[var(--text-base)] leading-relaxed">
+          <div className="space-y-4 text-secondary leading-relaxed">
             <p>
               Back in 2023, I pivoted to specialize in software security to try
               my hand at securing enterprises and bug bounties and tumbled head
@@ -109,10 +105,7 @@ export const Home = () => {
             <p>
               My main focus these days is building accessible user interfaces
               and digital experiences at{" "}
-              <a
-                href="#"
-                className="text-[var(--color-text-bright)] hover:text-[var(--color-accent)] transition-colors font-medium"
-              >
+              <a href="#" className="text-primary hover:text-accent transition-colors font-medium">
                 Startups
               </a>
               . I also occasionally take on freelance projects and contribute to
@@ -128,7 +121,7 @@ export const Home = () => {
 
         {/* Experience */}
         <section id="experience">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-bright)] mb-8">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-primary mb-8">
             Experience
           </h2>
           <ol className="space-y-10">
@@ -136,17 +129,12 @@ export const Home = () => {
               <li key={idx}>
                 <a
                   href={exp.link}
-                  className="rounded-2xl relative block py-3 -mx-3 px-3 hover:bg-[var(--color-bg-light)]/50 rounded transition-colors"
+                  className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
                 >
-                  <GlowingEffect
-                    disabled={false}
-                    spread={30}
-                    proximity={60}
-                    borderWidth={1.5}
-                  />
+                  <GlowingEffect disabled={false} spread={30} proximity={60} borderWidth={1.5} />
                   <div className="flex flex-col sm:flex-row sm:gap-6">
                     <div className="mb-3 sm:mb-0 sm:w-28 flex-shrink-0 flex items-center gap-3 sm:flex-col sm:items-start sm:gap-2">
-                      <p className="text-xs font-medium uppercase tracking-wide text-[var(--color-text)]">
+                      <p className="text-xs font-medium uppercase tracking-wide text-secondary">
                         {exp.period}
                       </p>
                       <img
@@ -156,17 +144,17 @@ export const Home = () => {
                       />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-[var(--text-base)] text-[var(--color-text-bright)] font-medium mb-2 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+                      <h3 className="text-base text-primary font-medium mb-2 group-hover:text-accent transition-colors leading-snug">
                         {exp.title} · {exp.company}
                       </h3>
-                      <p className="text-[var(--text-sm)] text-[var(--color-text)] mb-3 leading-relaxed">
+                      <p className="text-sm text-secondary mb-3 leading-relaxed">
                         {exp.description}
                       </p>
                       <ul className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => (
                           <li
                             key={tech}
-                            className="text-xs px-2.5 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-medium"
+                            className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent font-medium"
                           >
                             {tech}
                           </li>
@@ -182,7 +170,7 @@ export const Home = () => {
 
         {/* Projects */}
         <section id="projects">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-bright)] mb-8">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-primary mb-8">
             Projects
           </h2>
           <ol className="space-y-10">
@@ -190,25 +178,20 @@ export const Home = () => {
               <li key={idx}>
                 <a
                   href={project.link}
-                  className="group rounded-2xl relative block py-3 -mx-3 px-3 hover:bg-[var(--color-bg-light)]/50 rounded transition-colors"
+                  className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
                 >
-                  <GlowingEffect
-                    disabled={false}
-                    spread={30}
-                    proximity={60}
-                    borderWidth={1.5}
-                  />
-                  <h3 className="text-[var(--text-base)] text-[var(--color-text-bright)] font-medium mb-2 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+                  <GlowingEffect disabled={false} spread={30} proximity={60} borderWidth={1.5} />
+                  <h3 className="text-base text-primary font-medium mb-2 group-hover:text-accent transition-colors leading-snug">
                     {project.title}
                   </h3>
-                  <p className="text-[var(--text-sm)] text-[var(--color-text)] mb-3 leading-relaxed">
+                  <p className="text-sm text-secondary mb-3 leading-relaxed">
                     {project.description}
                   </p>
                   <ul className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <li
                         key={tech}
-                        className="text-xs px-2.5 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-medium"
+                        className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent font-medium"
                       >
                         {tech}
                       </li>
@@ -221,18 +204,16 @@ export const Home = () => {
         </section>
 
         {/* Footer */}
-        <footer className="text-xs text-[var(--color-text)] py-8 border-t border-[var(--color-text)]/10">
+        <footer className="text-xs text-secondary py-8 border-t border-border/10">
           <p>
             Designed and built by{" "}
-            <a
-              href="#"
-              className="text-[var(--color-text-bright)] hover:text-[var(--color-accent)] transition-colors font-medium"
-            >
+            <a href="#" className="text-primary hover:text-accent transition-colors font-medium">
               Corey Casmedes
             </a>
             . All rights reserved.
           </p>
         </footer>
+
       </div>
     </div>
   );
