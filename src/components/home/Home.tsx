@@ -2,6 +2,7 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { VantaBackground } from "../ui/vanta-background";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
+import { Navbar } from "../ui/navbar-menu";
 import vannevarLogo from "../../assets/vannevar-logo.png";
 import cruiseLogo from "../../assets/cruise-logo.png";
 import appleLogo from "../../assets/apple-logo.png";
@@ -70,6 +71,7 @@ export const Home = () => {
   return (
     <div>
       <VantaBackground />
+      <Navbar />
 
       <HeroSection />
 

@@ -4,7 +4,7 @@ const headline = "Security Engineering and Full Stack Applications";
 
 export const HeroSection = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-14">
       {/* Aceternity-style border accents */}
       <div className="absolute inset-y-0 left-0 h-full w-px bg-[var(--color-text)]/10">
         <div className="absolute top-1/4 h-48 w-px bg-gradient-to-b from-transparent via-[var(--color-accent)] to-transparent" />
