@@ -36,7 +36,7 @@ const DropdownItem = ({
   label,
   href,
 }: {
-  icon: React.ElementType;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   label: string;
   href: string;
 }) => (
