@@ -153,15 +153,17 @@ export const Home = () => {
                     borderWidth={1.5}
                   />
                   <div className="flex flex-col sm:flex-row sm:gap-6">
-                    <div className="mb-3 sm:mb-0 sm:w-28 flex-shrink-0 flex items-center gap-3 sm:flex-col sm:items-start sm:gap-2">
+                    <div className="mb-3 sm:mb-0 sm:w-28 flex-shrink-0 flex items-center gap-3 sm:flex-col sm:items-center sm:gap-2">
                       <p className="text-xs font-mono uppercase tracking-wide text-secondary">
                         {exp.period}
                       </p>
-                      <img
-                        src={exp.logo}
-                        alt={exp.company}
-                        className="w-8 h-8 flex-shrink-0 rounded object-contain"
-                      />
+                      <div className="sm:flex-1 sm:flex sm:items-center sm:justify-center">
+                        <img
+                          src={exp.logo}
+                          alt={exp.company}
+                          className="w-8 h-8 flex-shrink-0 rounded object-contain"
+                        />
+                      </div>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base text-primary font-medium mb-2 group-hover:text-accent transition-colors leading-snug">
