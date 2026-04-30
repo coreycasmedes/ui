@@ -19,7 +19,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="font-bold text-5xl md:text-7xl text-accent mb-6"
+          className="font-pixel pixel-crisp text-6xl sm:text-8xl md:text-9xl text-accent mb-6"
         >
           Corey Casmedes
         </motion.div>

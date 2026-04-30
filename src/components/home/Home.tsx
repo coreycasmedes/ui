@@ -53,7 +53,8 @@ const experiences = [
 
 const projects = [
   {
-    title: "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
+    title:
+      "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
     description: "Patent #11,516,295",
     technologies: ["Swift", "Python", "S3"],
     link: "https://patents.justia.com/patent/20240089325",
@@ -84,7 +85,6 @@ export const Home = () => {
       <HeroSection />
 
       <div className="max-w-2xl mx-auto px-6 md:px-12 py-20 space-y-28">
-
         {/* About */}
         <section id="about">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-primary mb-8">
@@ -97,9 +97,9 @@ export const Home = () => {
               { text: "the" },
               { text: "web," },
               { text: "one" },
-              { text: "line",  className: "text-accent" },
-              { text: "at",    className: "text-accent" },
-              { text: "a",     className: "text-accent" },
+              { text: "line", className: "text-accent" },
+              { text: "at", className: "text-accent" },
+              { text: "a", className: "text-accent" },
               { text: "time.", className: "text-accent" },
             ]}
             className="mb-8"
@@ -117,7 +117,10 @@ export const Home = () => {
             <p>
               My main focus these days is building accessible user interfaces
               and digital experiences at{" "}
-              <a href="#" className="text-primary hover:text-accent transition-colors font-medium">
+              <a
+                href="#"
+                className="text-primary hover:text-accent transition-colors font-medium"
+              >
                 Startups
               </a>
               . I also occasionally take on freelance projects and contribute to
@@ -143,10 +146,15 @@ export const Home = () => {
                   href={exp.link}
                   className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
                 >
-                  <GlowingEffect disabled={false} spread={30} proximity={60} borderWidth={1.5} />
+                  <GlowingEffect
+                    disabled={false}
+                    spread={30}
+                    proximity={60}
+                    borderWidth={1.5}
+                  />
                   <div className="flex flex-col sm:flex-row sm:gap-6">
                     <div className="mb-3 sm:mb-0 sm:w-28 flex-shrink-0 flex items-center gap-3 sm:flex-col sm:items-start sm:gap-2">
-                      <p className="text-xs font-medium uppercase tracking-wide text-secondary">
+                      <p className="text-xs font-mono uppercase tracking-wide text-secondary">
                         {exp.period}
                       </p>
                       <img
@@ -166,7 +174,7 @@ export const Home = () => {
                         {exp.technologies.map((tech) => (
                           <li
                             key={tech}
-                            className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent font-medium"
+                            className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent font-mono"
                           >
                             {tech}
                           </li>
@@ -192,7 +200,12 @@ export const Home = () => {
                   href={project.link}
                   className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
                 >
-                  <GlowingEffect disabled={false} spread={30} proximity={60} borderWidth={1.5} />
+                  <GlowingEffect
+                    disabled={false}
+                    spread={30}
+                    proximity={60}
+                    borderWidth={1.5}
+                  />
                   <h3 className="text-base text-primary font-medium mb-2 group-hover:text-accent transition-colors leading-snug">
                     {project.title}
                   </h3>
@@ -219,13 +232,15 @@ export const Home = () => {
         <footer className="text-xs text-secondary py-8 border-t border-border/10">
           <p>
             Designed and built by{" "}
-            <a href="#" className="text-primary hover:text-accent transition-colors font-medium">
+            <a
+              href="#"
+              className="text-primary hover:text-accent transition-colors font-medium"
+            >
               Corey Casmedes
             </a>
             . All rights reserved.
           </p>
         </footer>
-
       </div>
     </div>
   );

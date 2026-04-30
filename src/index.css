@@ -1,12 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "GeistPixel";
+  src: url("./assets/GeistPixel-Square.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme inline {
   /* ── White Elegance palette ── */
-  --carbon-black:   #1c1c1c;
+  --carbon-black: #1c1c1c;
   --alabaster-grey: #daddd8;
-  --soft-linen:     #ecebe4;
-  --platinum:       #eef0f2;
-  --ghost-white:    #fafaff;
+  --soft-linen: #ecebe4;
+  --platinum: #eef0f2;
+  --ghost-white: #fafaff;
 
   /* ── Semantic design tokens ──────────────────────────────────────────
      Tailwind generates utilities from --color-* automatically:
@@ -19,43 +26,47 @@
        bg-border       text-border       border-border
   ─────────────────────────────────────────────────────────────────── */
   --color-background: #1c1c1c; /* carbon-black  — page bg              */
-  --color-card:       #252525; /* lifted surface — dropdowns, modals   */
-  --color-surface:    #2a2a2a; /* hover states, inputs                 */
-  --color-primary:    #fafaff; /* ghost-white   — headings, key text   */
-  --color-secondary:  #daddd8; /* alabaster-grey — body / muted text   */
-  --color-accent:     #ecebe4; /* soft-linen    — buttons, highlights  */
-  --color-border:     #daddd8; /* alabaster-grey — dividers, strokes   */
+  --color-card: #252525; /* lifted surface — dropdowns, modals   */
+  --color-surface: #2a2a2a; /* hover states, inputs                 */
+  --color-primary: #fafaff; /* ghost-white   — headings, key text   */
+  --color-secondary: #daddd8; /* alabaster-grey — body / muted text   */
+  --color-accent: #ecebe4; /* soft-linen    — buttons, highlights  */
+  --color-border: #daddd8; /* alabaster-grey — dividers, strokes   */
 
   /* ── Legacy aliases (used by existing components via var()) ── */
-  --color-bg:          #1c1c1c;
-  --color-bg-light:    #2a2a2a;
-  --color-text:        #daddd8;
+  --color-bg: #1c1c1c;
+  --color-bg-light: #2a2a2a;
+  --color-text: #daddd8;
   --color-text-bright: #fafaff;
 
   /* ── Typography ── */
-  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-sans:
+    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  --font-pixel: "GeistPixel", monospace;
 
-  --text-xs:   0.75rem;
-  --text-sm:   0.875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
   --text-base: 1rem;
-  --text-lg:   1.125rem;
-  --text-xl:   1.25rem;
-  --text-2xl:  1.5rem;
-  --text-3xl:  1.875rem;
-  --text-4xl:  2.25rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
 
   /* ── Spacing (8px base) ── */
-  --space-1:  0.5rem;
-  --space-2:  1rem;
-  --space-3:  1.5rem;
-  --space-4:  2rem;
-  --space-6:  3rem;
-  --space-8:  4rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
   --space-12: 6rem;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -72,13 +83,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-primary);
 }
 
-p { line-height: 1.7; }
+p {
+  line-height: 1.7;
+}
 
 ::selection {
   background-color: var(--color-accent);
@@ -88,4 +106,10 @@ p { line-height: 1.7; }
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+@utility pixel-crisp {
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
 }
