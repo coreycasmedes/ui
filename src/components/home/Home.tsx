@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
@@ -69,6 +71,15 @@ const projects = [
 export const Home = () => {
   const { scrollY } = useScroll();
   const gradientOpacity = useTransform(scrollY, [0, 350], [1, 0]);
+  const location = useLocation();
+
+  useEffect(() => {
+    const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (target) {
+      const el = document.getElementById(target);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location.state]);
 
   return (
     <div>
