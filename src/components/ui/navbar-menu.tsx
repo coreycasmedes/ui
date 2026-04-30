@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FolderGit2,
-  ScrollText,
   Github,
   Linkedin,
   ChevronDown,
   FileText,
   Lightbulb,
+  Globe,
 } from "lucide-react";
 
 const connectItems = [
@@ -19,14 +19,7 @@ const connectItems = [
   },
 ];
 
-const projectItems = [
-  {
-    icon: ScrollText,
-    label: "Patent",
-    href: "https://patents.justia.com/patent/20240089325",
-  },
-  { icon: FolderGit2, label: "Wireguard Tunnel", href: "#" },
-];
+const travelItems = [{ icon: Globe, label: "Travel Map", href: "/travel" }];
 
 const blogItems = [
   { icon: FileText, label: "Writing", href: "#" },
@@ -92,14 +85,14 @@ export const Navbar = () => {
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 flex items-center justify-between h-14">
         {/* Logo + Desktop nav */}
         <div className="flex items-center gap-6">
-          <a href="#" className="flex items-center gap-2.5 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
             <div className="w-7 h-7 rounded-md bg-surface flex items-center justify-center">
               <img src="/favicon.svg" alt="CC" className="w-4 h-4" />
             </div>
             <span className="text-sm font-semibold text-primary">
               Corey Casmedes
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {simpleNavItems.map((item) => (
@@ -142,10 +135,10 @@ export const Navbar = () => {
                     <div className="grid grid-cols-3 divide-x divide-border/10">
                       <div className="p-5">
                         <p className="text-[10px] font-semibold uppercase tracking-widest text-secondary/50 mb-4">
-                          Projects
+                          Travel
                         </p>
                         <div className="space-y-1">
-                          {projectItems.map((item) => (
+                          {travelItems.map((item) => (
                             <DropdownItem key={item.label} {...item} />
                           ))}
                         </div>
@@ -180,7 +173,7 @@ export const Navbar = () => {
 
         {/* Desktop CTA */}
         <a
-          href="link"
+          href="https://www.linkedin.com/in/coreycasmedes"
           className="hidden md:block flex-shrink-0 rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-background hover:bg-primary transition-colors"
         >
           Contact
@@ -254,7 +247,7 @@ export const Navbar = () => {
                     transition={{ duration: 0.15 }}
                     className="overflow-hidden pl-3 border-l border-border/10 space-y-1"
                   >
-                    {[...projectItems, ...blogItems, ...connectItems].map(
+                    {[...travelItems, ...blogItems, ...connectItems].map(
                       ({ label, href }) => (
                         <a
                           key={label}

@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
-import { Navbar } from "../ui/navbar-menu";
 import vannevarLogo from "../../assets/vannevar-logo.png";
 import cruiseLogo from "../../assets/cruise-logo.png";
 import appleLogo from "../../assets/apple-logo.png";
@@ -81,7 +80,6 @@ export const Home = () => {
           opacity: gradientOpacity,
         }}
       />
-      <Navbar />
       <HeroSection />
 
       <div className="max-w-2xl mx-auto px-6 md:px-12 py-20 space-y-28">
@@ -229,20 +227,6 @@ export const Home = () => {
             ))}
           </ol>
         </section>
-
-        {/* Footer */}
-        <footer className="text-xs text-secondary py-8 border-t border-border/10">
-          <p>
-            Designed and built by{" "}
-            <a
-              href="#"
-              className="text-primary hover:text-accent transition-colors font-medium"
-            >
-              Corey Casmedes
-            </a>
-            . All rights reserved.
-          </p>
-        </footer>
       </div>
     </div>
   );
