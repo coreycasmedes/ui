@@ -84,7 +84,7 @@ const visitedPlaces: GlobeMarker[] = [
 export const Travel = () => {
   return (
     <>
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-8">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-4 md:pb-8">
         <p className="text-xs uppercase tracking-widest text-accent font-medium mb-4">
           Around the world
         </p>
@@ -103,7 +103,7 @@ export const Travel = () => {
           minDistance: 4,
           maxDistance: 12,
         }}
-        className="h-[75vh] w-full"
+        className="h-[50vh] sm:h-[60vh] md:h-[75vh] w-full"
       />
     </>
   );
