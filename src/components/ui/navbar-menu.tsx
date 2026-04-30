@@ -5,7 +5,6 @@ import {
   ScrollText,
   Github,
   Linkedin,
-  Mail,
   ChevronDown,
   FileText,
   Lightbulb,
