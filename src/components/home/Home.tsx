@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
+import { TechPill } from "../ui/tech-pill";
 import vannevarLogo from "../../assets/vannevar-logo.png";
 import cruiseLogo from "../../assets/cruise-logo.png";
 import appleLogo from "../../assets/apple-logo.png";
@@ -183,12 +184,7 @@ export const Home = () => {
                       </p>
                       <ul className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => (
-                          <li
-                            key={tech}
-                            className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent font-mono"
-                          >
-                            {tech}
-                          </li>
+                          <TechPill key={tech} label={tech} />
                         ))}
                       </ul>
                     </div>
@@ -225,12 +221,7 @@ export const Home = () => {
                   </p>
                   <ul className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <li
-                        key={tech}
-                        className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent font-medium"
-                      >
-                        {tech}
-                      </li>
+                      <TechPill key={tech} label={tech} />
                     ))}
                   </ul>
                 </a>
