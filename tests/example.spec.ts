@@ -34,32 +34,37 @@ test.describe("routing", () => {
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
 test.describe("navbar", () => {
-  test("More dropdown opens on hover", async ({ page }) => {
+  test("More dropdown opens on hover", async ({ page, isMobile }) => {
+    test.skip(isMobile, "desktop only");
     await page.goto("/#/");
     await page.getByRole("button", { name: /More/ }).hover();
     await expect(page.getByText("Travel Map")).toBeVisible();
   });
 
-  test("Travel Map in dropdown navigates to travel page", async ({ page }) => {
+  test("Travel Map in dropdown navigates to travel page", async ({ page, isMobile }) => {
+    test.skip(isMobile, "desktop only");
     await page.goto("/#/");
     await page.getByRole("button", { name: /More/ }).hover();
     await page.getByRole("link", { name: "Travel Map" }).click();
     await expect(page.getByRole("heading", { name: "Travel" })).toBeVisible();
   });
 
-  test("About button scrolls to about section", async ({ page }) => {
+  test("About button scrolls to about section", async ({ page, isMobile }) => {
+    test.skip(isMobile, "desktop only");
     await page.goto("/#/");
     await page.locator("header").getByRole("button", { name: "About" }).click();
     await expect(page.locator("#about")).toBeInViewport();
   });
 
-  test("Experience button scrolls to experience section", async ({ page }) => {
+  test("Experience button scrolls to experience section", async ({ page, isMobile }) => {
+    test.skip(isMobile, "desktop only");
     await page.goto("/#/");
     await page.locator("header").getByRole("button", { name: "Experience" }).click();
     await expect(page.locator("#experience")).toBeInViewport();
   });
 
-  test("About from travel page navigates home and scrolls", async ({ page }) => {
+  test("About from travel page navigates home and scrolls", async ({ page, isMobile }) => {
+    test.skip(isMobile, "desktop only");
     await page.goto("/#/travel");
     await page.locator("header").getByRole("button", { name: "About" }).click();
     await expect(page.locator("#about")).toBeInViewport({ timeout: 8000 });
