@@ -60,18 +60,26 @@ export const HeroSection = () => {
           transition={{ duration: 0.3, delay: 1.3 }}
           className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
-          <a
-            href="#about"
+          <button
+            onClick={() =>
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="transform rounded-lg bg-accent px-6 py-2.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary"
           >
             View Work
-          </a>
-          <a
-            href="#experience"
+          </button>
+          <button
+            onClick={() =>
+              document
+                .getElementById("experience")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="transform rounded-lg border border-secondary/30 px-6 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50"
           >
             Experience
-          </a>
+          </button>
         </motion.div>
 
         <motion.div
