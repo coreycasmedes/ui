@@ -1,4 +1,4 @@
-import { test, expect, devices } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
 // ─── Routing ──────────────────────────────────────────────────────────────────
 
@@ -69,27 +69,44 @@ test.describe("navbar", () => {
 // ─── Mobile menu ──────────────────────────────────────────────────────────────
 
 test.describe("mobile menu", () => {
-  test.use({ viewport: { width: 390, height: 844 } });
-
-  test("hamburger opens mobile menu", async ({ page }) => {
+  test("hamburger opens mobile menu", async ({ page, isMobile }) => {
+    test.skip(!isMobile, "mobile only");
     await page.goto("/#/");
     await page.getByRole("button", { name: "Toggle menu" }).click();
     await expect(page.getByRole("button", { name: /More/ })).toBeVisible();
   });
 
-  test("mobile More accordion reveals Travel Map", async ({ page }) => {
+  test("mobile More accordion reveals Travel Map", async ({ page, isMobile }) => {
+    test.skip(!isMobile, "mobile only");
     await page.goto("/#/");
     await page.getByRole("button", { name: "Toggle menu" }).click();
     await page.getByRole("button", { name: /More/ }).click();
     await expect(page.getByRole("link", { name: "Travel Map" })).toBeVisible();
   });
 
-  test("mobile Travel Map navigates to travel page", async ({ page }) => {
+  test("mobile Travel Map navigates to travel page", async ({ page, isMobile }) => {
+    test.skip(!isMobile, "mobile only");
     await page.goto("/#/");
     await page.getByRole("button", { name: "Toggle menu" }).click();
     await page.getByRole("button", { name: /More/ }).click();
     await page.getByRole("link", { name: "Travel Map" }).click();
     await expect(page.getByRole("heading", { name: "Travel" })).toBeVisible();
+  });
+});
+
+// ─── Hero buttons ─────────────────────────────────────────────────────────────
+
+test.describe("hero buttons", () => {
+  test("View Work button scrolls projects section into view", async ({ page }) => {
+    await page.goto("/#/");
+    await page.getByRole("button", { name: "View Work" }).click();
+    await expect(page.locator("#projects")).toBeInViewport({ timeout: 3000 });
+  });
+
+  test("Experience button scrolls experience section into view", async ({ page }) => {
+    await page.goto("/#/");
+    await page.getByRole("main").getByRole("button", { name: "Experience" }).click();
+    await expect(page.locator("#experience")).toBeInViewport({ timeout: 3000 });
   });
 });
 
