@@ -12,7 +12,7 @@ import capitalOneLogo from "../../assets/capital-one-logo.png";
 
 const experiences = [
   {
-    period: "2024 — Present",
+    period: "2024 — 2025",
     title: "Senior Software Engineer",
     company: "Startup",
     logo: vannevarLogo,
