@@ -129,6 +129,23 @@ export const Home = () => {
 
           <div className="space-y-4 text-secondary leading-relaxed">
             <p>
+              Currently, I work on the{" "}
+              <span className="text-primary font-semibold">
+                Core Attack Team
+              </span>{" "}
+              at{" "}
+              <a
+                href="https://horizon3.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-accent transition-colors font-medium"
+              >
+                Horizon3.ai
+              </a>
+              , building autonomous pentesting software and researching security
+              vulnerabilities.
+            </p>
+            <p>
               Back in 2023, I pivoted to specialize in software security to try
               my hand at securing enterprises and bug bounties and tumbled head
               first into the rabbit hole. Fast-forward to today, and I've had
