@@ -5,12 +5,23 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
 import { TechPill } from "../ui/tech-pill";
+import horizon3Logo from "../../assets/h3.png";
 import vannevarLogo from "../../assets/vannevar-logo.png";
 import cruiseLogo from "../../assets/cruise-logo.png";
 import appleLogo from "../../assets/apple-logo.png";
 import capitalOneLogo from "../../assets/capital-one-logo.png";
 
 const experiences = [
+  {
+    period: "2026 — Present",
+    title: "Software Engineer II",
+    company: "Horizon3",
+    logo: horizon3Logo,
+    description:
+      "Autonomous pentesting and security vulnerability research, focused on cloud pentesting, data pipelines, and ETL workflows.",
+    technologies: ["Python", "neo4j", "AWS"],
+    link: "#",
+  },
   {
     period: "2024 — 2025",
     title: "Senior Software Engineer",
