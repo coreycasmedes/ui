@@ -99,4 +99,8 @@ public/          # favicon.svg, static assets served at /
 
 ## Favicon
 
-Generated via `node generate-favicon.js` (ES module). Uses `GeistPixel-Square.ttf` with opentype.js. Output: `public/favicon.svg`. Re-run after any changes to the script.
+Generated via `node generate-favicon.js` (ES module, rasterized with `sharp`). Re-run after any changes to the script.
+
+- Tab icons (`favicon.svg`, `favicon.ico` at 16/32/48) use a "CC" redrawn on a 16x16 pixel grid — the GeistPixel-Square glyph is illegible at 16px.
+- Home-screen icons (`apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`) use the GeistPixel-Square glyph, embedded in the script as path data.
+- `site.webmanifest` is written by the same script; the `<link>` tags live in `index.html`.
