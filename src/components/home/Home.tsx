@@ -5,13 +5,31 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
 import { TechPill } from "../ui/tech-pill";
+import { CardLink } from "../ui/card-link";
 import horizon3Logo from "../../assets/h3.png";
 import vannevarLogo from "../../assets/vannevar-logo.png";
 import cruiseLogo from "../../assets/cruise-logo.png";
 import appleLogo from "../../assets/apple-logo.png";
 import capitalOneLogo from "../../assets/capital-one-logo.png";
 
-const experiences = [
+type Experience = {
+  period: string;
+  title: string;
+  company: string;
+  logo: string;
+  description: string;
+  technologies: string[];
+  link?: string;
+};
+
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  link?: string;
+};
+
+const experiences: Experience[] = [
   {
     period: "2026 — Present",
     title: "Software Engineer II",
@@ -20,7 +38,7 @@ const experiences = [
     description:
       "Autonomous pentesting and security vulnerability research, focused on cloud pentesting, data pipelines, and ETL workflows.",
     technologies: ["Python", "neo4j", "AWS"],
-    link: "#",
+    link: "https://horizon3.ai/",
   },
   {
     period: "2024 — 2025",
@@ -30,7 +48,6 @@ const experiences = [
     description:
       "Build and maintain critical auth systems that serve thousands of users. Lead architectural decisions and mentor junior developers.",
     technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
-    link: "#",
   },
   {
     period: "2023 — 2024",
@@ -40,7 +57,6 @@ const experiences = [
     description:
       "Developed full-stack applications for incident detection and response. Improved application performance and implemented CI/CD pipelines.",
     technologies: ["Python", "React", "BigQuery"],
-    link: "#",
   },
   {
     period: "2021 — 2023",
@@ -50,7 +66,7 @@ const experiences = [
     description:
       "Revealed Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
     technologies: ["Java", "Python"],
-    link: "#",
+    link: "https://www.apple.com/",
   },
   {
     period: "2019 — 2021",
@@ -60,11 +76,11 @@ const experiences = [
     description:
       "Embedded in Credit Risk Management data engineering organization. Collaborated with Credit Officer and Analyst to optimize model infrastructure and reduce cloud costs.",
     technologies: ["Python", "R", "AWS"],
-    link: "#",
+    link: "https://www.capitalone.com/",
   },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     title:
       "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
@@ -76,7 +92,7 @@ const projects = [
     title: "Wireguard Domain Tunnel",
     description: "Domain based wireguard VPN split tunnel",
     technologies: ["TypeScript", "Rust", "Electron"],
-    link: "#",
+    link: "https://github.com/coreycasmedes/wireguard-domain-tunnel",
   },
 ];
 
@@ -155,12 +171,7 @@ export const Home = () => {
             <p>
               My main focus these days is building accessible user interfaces
               and digital experiences at{" "}
-              <a
-                href="#"
-                className="text-primary hover:text-accent transition-colors font-medium"
-              >
-                Startups
-              </a>
+              <span className="text-primary font-medium">Startups</span>
               . I also occasionally take on freelance projects and contribute to
               open-source software.
             </p>
@@ -180,10 +191,7 @@ export const Home = () => {
           <ol className="space-y-10">
             {experiences.map((exp, idx) => (
               <li key={idx}>
-                <a
-                  href={exp.link}
-                  className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
-                >
+                <CardLink href={exp.link}>
                   <GlowingEffect
                     disabled={false}
                     spread={30}
@@ -217,7 +225,7 @@ export const Home = () => {
                       </ul>
                     </div>
                   </div>
-                </a>
+                </CardLink>
               </li>
             ))}
           </ol>
@@ -231,10 +239,7 @@ export const Home = () => {
           <ol className="space-y-10">
             {projects.map((project, idx) => (
               <li key={idx}>
-                <a
-                  href={project.link}
-                  className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
-                >
+                <CardLink href={project.link}>
                   <GlowingEffect
                     disabled={false}
                     spread={30}
@@ -252,7 +257,7 @@ export const Home = () => {
                       <TechPill key={tech} label={tech} />
                     ))}
                   </ul>
-                </a>
+                </CardLink>
               </li>
             ))}
           </ol>
