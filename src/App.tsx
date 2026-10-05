@@ -1,8 +1,12 @@
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Layout } from "./components/layout/Layout";
 import { Home } from "./components/home/Home";
-import { Travel } from "./components/travel/Travel";
+
+// Split the travel route out so three.js is only fetched when it is visited.
+const Travel = lazy(() =>
+  import("./components/travel/Travel").then((m) => ({ default: m.Travel })),
+);
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -17,7 +21,14 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/travel" element={<Travel />} />
+          <Route
+            path="/travel"
+            element={
+              <Suspense fallback={null}>
+                <Travel />
+              </Suspense>
+            }
+          />
         </Routes>
       </Layout>
     </HashRouter>
