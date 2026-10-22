@@ -148,6 +148,7 @@ export const TypewriterEffectSmooth = ({
         whileInView={{
           width: "fit-content",
         }}
+        viewport={{ once: true }}
         transition={{
           duration: 2,
           ease: "linear",

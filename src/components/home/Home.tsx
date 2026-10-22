@@ -46,7 +46,7 @@ const experiences: Experience[] = [
     company: "Startup",
     logo: vannevarLogo,
     description:
-      "Build and maintain critical auth systems that serve thousands of users. Lead architectural decisions and mentor junior developers.",
+      "Built and maintained critical auth systems serving thousands of users. Led architectural decisions and mentored junior developers.",
     technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
   },
   {
@@ -86,7 +86,7 @@ const projects: Project[] = [
       "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
     description: "Patent #11,516,295",
     technologies: ["Swift", "Python", "S3"],
-    link: "https://patents.justia.com/patent/20240089325",
+    link: "https://patents.google.com/patent/US11516295B1",
   },
   {
     title: "Wireguard Domain Tunnel",
@@ -206,7 +206,7 @@ export const Home = () => {
                       <div className="sm:flex-1 sm:flex sm:items-center sm:justify-center">
                         <img
                           src={exp.logo}
-                          alt={exp.company}
+                          alt=""
                           className="w-8 h-8 flex-shrink-0 rounded object-contain"
                         />
                       </div>

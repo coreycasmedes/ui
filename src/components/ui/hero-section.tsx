@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 const headline = "Security Engineering and Full Stack Applications";
@@ -15,32 +16,36 @@ export const HeroSection = () => {
           Software Engineer / Security
         </motion.p>
 
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="font-pixel pixel-crisp text-6xl sm:text-8xl md:text-9xl text-accent mb-6"
+          className="mb-6"
         >
-          Corey Casmedes
-        </motion.div>
+          {/* Inner span: index.css's unlayered h1 rule would override these utilities */}
+          <span className="block font-pixel pixel-crisp font-normal text-6xl sm:text-8xl md:text-9xl text-accent">
+            Corey Casmedes
+          </span>
+        </motion.h1>
 
-        <h1 className="relative z-10 max-w-2xl text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-6 leading-snug">
+        <div className="relative z-10 max-w-2xl text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-6 leading-snug">
           {headline.split(" ").map((word, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.4 + index * 0.08,
-                ease: "easeInOut",
-              }}
-              className="mr-2 inline-block"
-            >
-              {word}
-            </motion.span>
+            <Fragment key={index}>
+              <motion.span
+                initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.4 + index * 0.08,
+                  ease: "easeInOut",
+                }}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>{" "}
+            </Fragment>
           ))}
-        </h1>
+        </div>
 
         <motion.p
           initial={{ opacity: 0 }}
