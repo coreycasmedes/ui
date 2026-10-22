@@ -103,6 +103,17 @@ test.describe("not found", () => {
   });
 });
 
+test.describe("contact", () => {
+  test("page closes with a contact section linking LinkedIn", async ({ page }) => {
+    await page.goto("/#/");
+    const contact = page.locator("#contact");
+    await expect(contact.getByRole("heading", { name: "Contact" })).toBeVisible();
+    await expect(
+      contact.getByRole("link", { name: "Message me on LinkedIn" }),
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/coreycasmedes");
+  });
+});
+
 test.describe("projects", () => {
   test("patent links to the granted patent it names", async ({ page }) => {
     await page.goto("/#/");

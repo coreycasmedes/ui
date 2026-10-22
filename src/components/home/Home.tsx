@@ -64,7 +64,7 @@ const experiences: Experience[] = [
     company: "Apple",
     logo: appleLogo,
     description:
-      "Revealed Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
+      "Developed the Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
     technologies: ["Java", "Python"],
     link: "https://www.apple.com/",
   },
@@ -145,7 +145,7 @@ export const Home = () => {
 
           <div className="space-y-4 text-secondary leading-relaxed">
             <p>
-              Currently, I work on the{" "}
+              I'm a software engineer on the{" "}
               <span className="text-primary font-semibold">
                 Core Attack Team
               </span>{" "}
@@ -158,27 +158,20 @@ export const Home = () => {
               >
                 Horizon3.ai
               </a>
-              , building autonomous pentesting software and researching security
-              vulnerabilities.
+              , where I build autonomous pentesting software and research
+              security vulnerabilities, with a focus on cloud environments.
             </p>
             <p>
-              Back in 2023, I pivoted to specialize in software security to try
-              my hand at securing enterprises and bug bounties and tumbled head
-              first into the rabbit hole. Fast-forward to today, and I've had
-              the privilege of building software for startups, large
-              corporations, and everything in between.
+              I started out on the building side: data infrastructure for
+              credit risk at Capital One, then partner tooling for Apple Pay. In
+              2023 I moved into security, first through bug bounties, then
+              incident detection and response at Cruise and authentication
+              systems at a startup.
             </p>
             <p>
-              My main focus these days is building accessible user interfaces
-              and digital experiences at{" "}
-              <span className="text-primary font-medium">Startups</span>
-              . I also occasionally take on freelance projects and contribute to
-              open-source software.
-            </p>
-            <p>
-              When I'm not coding, you'll find me contributing to developer
-              communities, or working on personal projects that push my skills
-              forward.
+              Outside of work I build the tools I want to exist, like a
+              domain-based WireGuard split tunnel, take on the occasional
+              freelance project, and travel whenever I can.
             </p>
           </div>
         </section>
@@ -261,6 +254,35 @@ export const Home = () => {
               </li>
             ))}
           </ol>
+        </section>
+
+        {/* Contact */}
+        <section id="contact">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-primary mb-8">
+            Contact
+          </h2>
+          <p className="text-secondary leading-relaxed mb-10">
+            The best way to reach me is a message on LinkedIn. My code and
+            side projects are on GitHub.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://www.linkedin.com/in/coreycasmedes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-accent px-6 py-2.5 text-sm font-medium text-background hover:bg-primary transition-colors"
+            >
+              Message me on LinkedIn
+            </a>
+            <a
+              href="https://github.com/coreycasmedes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-secondary/30 px-6 py-2.5 text-sm font-medium text-primary hover:border-accent/50 transition-colors"
+            >
+              View GitHub
+            </a>
+          </div>
         </section>
       </div>
     </div>
