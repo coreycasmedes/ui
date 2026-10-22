@@ -5,13 +5,31 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { HeroSection } from "../ui/hero-section";
 import { GlowingEffect } from "../ui/glowing-effect";
 import { TechPill } from "../ui/tech-pill";
+import { CardLink } from "../ui/card-link";
 import horizon3Logo from "../../assets/h3.png";
 import vannevarLogo from "../../assets/vannevar-logo.png";
 import cruiseLogo from "../../assets/cruise-logo.png";
 import appleLogo from "../../assets/apple-logo.png";
 import capitalOneLogo from "../../assets/capital-one-logo.png";
 
-const experiences = [
+type Experience = {
+  period: string;
+  title: string;
+  company: string;
+  logo: string;
+  description: string;
+  technologies: string[];
+  link?: string;
+};
+
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  link?: string;
+};
+
+const experiences: Experience[] = [
   {
     period: "2026 — Present",
     title: "Software Engineer II",
@@ -20,7 +38,7 @@ const experiences = [
     description:
       "Autonomous pentesting and security vulnerability research, focused on cloud pentesting, data pipelines, and ETL workflows.",
     technologies: ["Python", "neo4j", "AWS"],
-    link: "#",
+    link: "https://horizon3.ai/",
   },
   {
     period: "2024 — 2025",
@@ -28,9 +46,8 @@ const experiences = [
     company: "Startup",
     logo: vannevarLogo,
     description:
-      "Build and maintain critical auth systems that serve thousands of users. Lead architectural decisions and mentor junior developers.",
+      "Built and maintained critical auth systems serving thousands of users. Led architectural decisions and mentored junior developers.",
     technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"],
-    link: "#",
   },
   {
     period: "2023 — 2024",
@@ -40,7 +57,6 @@ const experiences = [
     description:
       "Developed full-stack applications for incident detection and response. Improved application performance and implemented CI/CD pipelines.",
     technologies: ["Python", "React", "BigQuery"],
-    link: "#",
   },
   {
     period: "2021 — 2023",
@@ -48,9 +64,9 @@ const experiences = [
     company: "Apple",
     logo: appleLogo,
     description:
-      "Revealed Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
+      "Developed the Apple Pay partner onboarding and server performance testing portal. Collaborated with designers to build pixel-perfect interfaces.",
     technologies: ["Java", "Python"],
-    link: "#",
+    link: "https://www.apple.com/",
   },
   {
     period: "2019 — 2021",
@@ -60,23 +76,23 @@ const experiences = [
     description:
       "Embedded in Credit Risk Management data engineering organization. Collaborated with Credit Officer and Analyst to optimize model infrastructure and reduce cloud costs.",
     technologies: ["Python", "R", "AWS"],
-    link: "#",
+    link: "https://www.capitalone.com/",
   },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     title:
       "Using Contextual Information for Vehicle Trip Loss Risk Assessment Scoring",
     description: "Patent #11,516,295",
     technologies: ["Swift", "Python", "S3"],
-    link: "https://patents.justia.com/patent/20240089325",
+    link: "https://patents.google.com/patent/US11516295B1",
   },
   {
     title: "Wireguard Domain Tunnel",
     description: "Domain based wireguard VPN split tunnel",
     technologies: ["TypeScript", "Rust", "Electron"],
-    link: "#",
+    link: "https://github.com/coreycasmedes/wireguard-domain-tunnel",
   },
 ];
 
@@ -129,7 +145,7 @@ export const Home = () => {
 
           <div className="space-y-4 text-secondary leading-relaxed">
             <p>
-              Currently, I work on the{" "}
+              I'm a software engineer on the{" "}
               <span className="text-primary font-semibold">
                 Core Attack Team
               </span>{" "}
@@ -142,32 +158,20 @@ export const Home = () => {
               >
                 Horizon3.ai
               </a>
-              , building autonomous pentesting software and researching security
-              vulnerabilities.
+              , where I build autonomous pentesting software and research
+              security vulnerabilities, with a focus on cloud environments.
             </p>
             <p>
-              Back in 2023, I pivoted to specialize in software security to try
-              my hand at securing enterprises and bug bounties and tumbled head
-              first into the rabbit hole. Fast-forward to today, and I've had
-              the privilege of building software for startups, large
-              corporations, and everything in between.
+              I started out on the building side: data infrastructure for
+              credit risk at Capital One, then partner tooling for Apple Pay. In
+              2023 I moved into security, first through bug bounties, then
+              incident detection and response at Cruise and authentication
+              systems at a startup.
             </p>
             <p>
-              My main focus these days is building accessible user interfaces
-              and digital experiences at{" "}
-              <a
-                href="#"
-                className="text-primary hover:text-accent transition-colors font-medium"
-              >
-                Startups
-              </a>
-              . I also occasionally take on freelance projects and contribute to
-              open-source software.
-            </p>
-            <p>
-              When I'm not coding, you'll find me contributing to developer
-              communities, or working on personal projects that push my skills
-              forward.
+              Outside of work I build the tools I want to exist, like a
+              domain-based WireGuard split tunnel, take on the occasional
+              freelance project, and travel whenever I can.
             </p>
           </div>
         </section>
@@ -180,10 +184,7 @@ export const Home = () => {
           <ol className="space-y-10">
             {experiences.map((exp, idx) => (
               <li key={idx}>
-                <a
-                  href={exp.link}
-                  className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
-                >
+                <CardLink href={exp.link}>
                   <GlowingEffect
                     disabled={false}
                     spread={30}
@@ -198,7 +199,7 @@ export const Home = () => {
                       <div className="sm:flex-1 sm:flex sm:items-center sm:justify-center">
                         <img
                           src={exp.logo}
-                          alt={exp.company}
+                          alt=""
                           className="w-8 h-8 flex-shrink-0 rounded object-contain"
                         />
                       </div>
@@ -217,7 +218,7 @@ export const Home = () => {
                       </ul>
                     </div>
                   </div>
-                </a>
+                </CardLink>
               </li>
             ))}
           </ol>
@@ -231,10 +232,7 @@ export const Home = () => {
           <ol className="space-y-10">
             {projects.map((project, idx) => (
               <li key={idx}>
-                <a
-                  href={project.link}
-                  className="group relative block rounded-2xl py-3 -mx-3 px-3 hover:bg-surface/50 transition-colors"
-                >
+                <CardLink href={project.link}>
                   <GlowingEffect
                     disabled={false}
                     spread={30}
@@ -252,10 +250,39 @@ export const Home = () => {
                       <TechPill key={tech} label={tech} />
                     ))}
                   </ul>
-                </a>
+                </CardLink>
               </li>
             ))}
           </ol>
+        </section>
+
+        {/* Contact */}
+        <section id="contact">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-primary mb-8">
+            Contact
+          </h2>
+          <p className="text-secondary leading-relaxed mb-10">
+            The best way to reach me is a message on LinkedIn. My code and
+            side projects are on GitHub.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://www.linkedin.com/in/coreycasmedes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-accent px-6 py-2.5 text-sm font-medium text-background hover:bg-primary transition-colors"
+            >
+              Message me on LinkedIn
+            </a>
+            <a
+              href="https://github.com/coreycasmedes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-secondary/30 px-6 py-2.5 text-sm font-medium text-primary hover:border-accent/50 transition-colors"
+            >
+              View GitHub
+            </a>
+          </div>
         </section>
       </div>
     </div>

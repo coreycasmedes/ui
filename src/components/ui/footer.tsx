@@ -15,6 +15,7 @@ const useScrollTo = () => {
 const navigateLinks = [
   { label: "About", section: "about" },
   { label: "Experience", section: "experience" },
+  { label: "Projects", section: "projects" },
 ];
 
 const connectLinks = [
@@ -35,11 +36,11 @@ export const Footer = () => {
         <div className="flex-shrink-0">
           <Link to="/" className="flex items-center gap-2.5 mb-4">
             <div className="w-7 h-7 rounded-md bg-surface flex items-center justify-center">
-              <img src="/favicon.svg" alt="CC" className="w-4 h-4" />
+              <img src="/favicon.svg" alt="" className="w-4 h-4" />
             </div>
             <span className="text-sm font-semibold text-primary">Corey Casmedes</span>
           </Link>
-          <p className="text-xs text-secondary/50 max-w-[200px] leading-relaxed">
+          <p className="text-xs text-secondary/60 max-w-[200px] leading-relaxed">
             © {new Date().getFullYear()} Corey Casmedes.<br />All rights reserved.
           </p>
         </div>
